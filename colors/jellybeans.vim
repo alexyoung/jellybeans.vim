@@ -450,7 +450,7 @@ call s:X("NonText","606060",s:background_color,"",s:termBlack,"")
 
 call s:X("SpecialKey","444444","1c1c1c","",s:termBlack,"")
 
-call s:X("Search","f0a0c0","302028","underline","Magenta","")
+call s:X("Search","f0a0c0","302028","","Magenta","")
 
 call s:X("Directory","dad085","","","Yellow","")
 call s:X("ErrorMsg","","902020","","","DarkRed")
@@ -461,10 +461,10 @@ call s:X("Question","65C254","","","Green","")
 
 " Spell Checking
 
-call s:X("SpellBad","","902020","underline","","DarkRed")
-call s:X("SpellCap","","0000df","underline","","Blue")
-call s:X("SpellRare","","540063","underline","","DarkMagenta")
-call s:X("SpellLocal","","2D7067","underline","","Green")
+call s:X("SpellBad","","902020","","","DarkRed")
+call s:X("SpellCap","","0000df","","","Blue")
+call s:X("SpellRare","","540063","","","DarkMagenta")
+call s:X("SpellLocal","","2D7067","","","Green")
 
 " Diff
 
@@ -621,7 +621,7 @@ if !empty("s:overrides")
   fun! s:current_attr(group)
     let l:synid = synIDtrans(hlID(a:group))
     let l:attrs = []
-    for l:attr in ["bold", "italic", "reverse", "standout", "underline", "undercurl"]
+    for l:attr in ["bold", "italic", "reverse", "standout", "", "undercurl"]
       if synIDattr(l:synid, l:attr, "gui") == 1
         call add(l:attrs, l:attr)
       endif
